@@ -1,0 +1,85 @@
+<div class="session-container">
+  <button (click)="logout()" class="btn btn-secondary logout-btn" style="float: right;">Logout</button>
+  <h1>Create Session</h1>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="sessionName" placeholder="Session Name" class="form-control">
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="username" placeholder="Username" class="form-control">
+  </div>
+  <button (click)="createSession()" class="btn btn-primary">Create Session</button>
+  <div *ngIf="errorMessageCreateSession" class="error-message" role="alert">
+    {{ errorMessageCreateSession }}
+  </div>
+
+  <h1>Active Sessions</h1>
+  <button (click)="loadActiveSessions()" class="btn btn-primary">Get Active Sessions</button>
+
+  <ul class="session-list">
+    <li *ngFor="let session of activeSessions">
+      <span>{{ session.sessionName }} - {{ session.id }}</span>
+      <button *ngIf="isInitiatedByCurrentUser(session)" (click)="endSession(session.id)" class="btn btn-danger">End Session</button>
+    </li>
+  </ul>
+  <div *ngIf="errorMessageActiveSessions" class="error-message" role="alert">
+    {{ errorMessageActiveSessions }}
+  </div>
+
+  <h1>Invite User to Session</h1>
+  <div class="form-group">
+    <input type="number" [(ngModel)]="sessionIdToInvite" placeholder="Session ID" class="form-control">
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="inviteUsername" placeholder="Username" class="form-control">
+  </div>
+  <button (click)="inviteUserToSession()" class="btn btn-primary">Invite User</button>
+  <div *ngIf="errorMessageInviteUser" class="error-message" role="alert">
+    {{ errorMessageInviteUser }}
+  </div>
+
+  <h1>Invited Users</h1>
+  <ul class="user-list">
+    <li *ngFor="let user of invitedUsers">
+      {{ user.username }}
+    </li>
+  </ul>
+
+  <h1>Submit Restaurant</h1>
+  <div class="form-group">
+    <input type="number" [(ngModel)]="sessionIdForRestaurant" placeholder="Session ID" class="form-control">
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="restaurantName" placeholder="Restaurant Name" class="form-control">
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="username" placeholder="Username" class="form-control">
+  </div>
+  <button (click)="submitRestaurant()" class="btn btn-primary">Submit Restaurant</button>
+  <div *ngIf="successMessageSubmitRestaurant" class="success-message" role="alert">
+    {{ successMessageSubmitRestaurant }}
+  </div>
+  <div *ngIf="errorMessageSubmitRestaurant" class="error-message" role="alert">
+    {{ errorMessageSubmitRestaurant }}
+  </div>
+
+  <h1>Get Restaurants</h1>
+  <div class="form-group">
+    <input type="number" [(ngModel)]="sessionIdForRestaurants" placeholder="Session ID" class="form-control">
+  </div>
+  <button (click)="getRestaurants()" class="btn btn-primary">Get Restaurants</button>
+  <ul class="restaurant-list">
+    <li *ngFor="let restaurant of restaurants">
+      {{ restaurant.name }}
+    </li>
+  </ul>
+
+  <h1>Pick Random Restaurant</h1>
+  <div class="form-group">
+    <input type="number" [(ngModel)]="sessionIdToPick" placeholder="Session ID" class="form-control">
+  </div>
+  <button (click)="pickRandomRestaurant()" class="btn btn-primary">Pick Random Restaurant</button>
+  <div *ngIf="randomRestaurant">
+    <h3>Randomly Picked Restaurant:</h3>
+    <p>{{ randomRestaurant.name }}</p>
+  </div>
+</div>

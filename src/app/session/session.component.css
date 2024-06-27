@@ -1,0 +1,117 @@
+/* General container styling */
+div {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+/* Header styling */
+h1 {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  color: #333;
+}
+
+/* Input field styling */
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+/* Button styling */
+button {
+  width: auto;
+  padding: 0.5em 1em;
+  margin: 0.5em 0;
+  border: none;
+  border-radius: 3px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+button.btn-secondary {
+  background-color: #6c757d;
+}
+
+button.logout-btn {
+  float: right;
+  background-color: #dc3545;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+button.logout-btn:hover {
+  background-color: #c82333;
+}
+
+/* List styling */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  padding: 0.5em;
+  border-bottom: 1px solid #ccc;
+}
+
+ul li button {
+  float: right;
+}
+
+/* Clear float */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.list-item {
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  background-color: #ecf0f1;
+}
+.list-item:hover {
+  background-color: #dcdde1;
+}
+
+.error-message {
+  color: #d9534f;
+  font-size: 1em;
+  padding: 0.75em;
+  border-radius: 5px;
+  margin-top: 1em;
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+}
+.success-message {
+  color: #1010ba;
+  font-size: 1em;
+  padding: 0.75em;
+  border-radius: 5px;
+  margin-top: 1em;
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+}
